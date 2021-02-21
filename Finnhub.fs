@@ -1,5 +1,9 @@
-﻿namespace finnhub
+﻿namespace FinnhubDotNet
 
-module Say =
-    let hello name =
-        printfn "Hello %s" name
+type Client(key: string) =
+    let key = key
+
+    member this.GetQuote() =
+        0
+
+
