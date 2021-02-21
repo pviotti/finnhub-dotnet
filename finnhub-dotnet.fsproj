@@ -1,12 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>exe</OutputType> <!-- just used for testing initially -->
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>FinnhubDotNet</RootNamespace>
+    <Version>0.1</Version>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Finnhub.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Http.fs" Version="5.4.0" />
   </ItemGroup>
 
 </Project>
