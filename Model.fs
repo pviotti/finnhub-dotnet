@@ -21,3 +21,16 @@ type Symbol =
       ``type``: string }
 
 type SymbolLookup = { count: int; result: Symbol [] }
+
+type NewsPiece =
+    { category: string
+      datetime: int64
+      headline: string
+      id: int
+      image: string
+      related: string
+      source: string
+      summary: string
+      url: string }
+
+type News = NewsPiece []

@@ -1,4 +1,4 @@
-//namespace FinnhubDotNet
+﻿//namespace FinnhubDotNet
 
 module FinnhubDotNet
 
@@ -15,7 +15,7 @@ type Client(key: string) =
         new HttpClient(BaseAddress = Uri("https://finnhub.io/api/v1/"))
 
     let joinParameters (parameters: list<string * string>) =
-        parameters 
+        parameters
         |> List.append [ ("token", key) ]
         |> List.map (fun x -> fst (x) + "=" + snd (x))
         |> String.concat "&"
@@ -28,7 +28,7 @@ type Client(key: string) =
             return!
                 httpClient.GetFromJsonAsync<'T> uri
                 |> Async.AwaitTask
-        } 
+        }
 
     member this.CompanyProfile(symbol: string) =
         this._request<CompanyProfile> "stock/profile2?" [ ("symbol", symbol) ]
@@ -36,13 +36,33 @@ type Client(key: string) =
     member this.SymbolLookup(query: string) =
         this._request<SymbolLookup> "search?" [ ("q", query) ]
 
+    member this.CompanyNews (symbol: string) (fromDate: string) (toDate: string) =
+        this._request<News>
+            "company-news?"
+            [ ("symbol", symbol)
+              ("from", fromDate)
+              ("to", toDate) ]
+
 [<EntryPoint>]
 let main _argv =
     let client = Client("")
-    let companyProfile = client.CompanyProfile "AAPL" |> Async.RunSynchronously
+
+    let companyProfile =
+        client.CompanyProfile "AAPL"
+        |> Async.RunSynchronously
+
     printfn "%s" companyProfile.exchange
     printfn "%A" companyProfile
 
-    let res = client.SymbolLookup "apple" |> Async.RunSynchronously
+    let res =
+        client.SymbolLookup "apple"
+        |> Async.RunSynchronously
+
+    printfn "%A" res
+
+    let res =
+        client.CompanyNews "AAPL" "2020-04-30" "2020-05-01"
+        |> Async.RunSynchronously
+
     printfn "%A" res
     0
