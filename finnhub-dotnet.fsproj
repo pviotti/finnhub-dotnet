@@ -13,8 +13,4 @@
     <Compile Include="Finnhub.fs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Http.fs" Version="5.4.0" />
-  </ItemGroup>
-
 </Project>
