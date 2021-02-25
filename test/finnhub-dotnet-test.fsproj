@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FsUnit" Version="4.0.4" />
+    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0-beta.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0-preview-20210219-03" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="UnitTest1.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>
