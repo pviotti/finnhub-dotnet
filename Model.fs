@@ -34,3 +34,14 @@ type NewsPiece =
       url: string }
 
 type News = NewsPiece []
+
+type NewsSentiment =
+    { buzz: {| articlesInLastWeek: int
+               buzz: float
+               weeklyAverage: float |}
+      companyNewsScore: float
+      sectorAverageBullishPercent: float
+      sectorAverageNewsScore: float
+      sentiment: {| bearishPercent: int
+                    bullishPercent: int |}
+      symbol: string }
