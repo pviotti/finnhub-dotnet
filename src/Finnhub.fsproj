@@ -1,11 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>exe</OutputType> <!-- just used for testing initially -->
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>FinnhubDotNet</RootNamespace>
+    <RootNamespace>Finnhub</RootNamespace>
     <Version>0.1</Version>
-    <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
 
   <ItemGroup>

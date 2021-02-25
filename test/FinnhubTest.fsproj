@@ -15,8 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="UnitTest1.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Test.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Finnhub.fsproj" />
   </ItemGroup>
 
 </Project>

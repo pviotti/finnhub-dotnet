@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "finnhub-dotnet", "src\finnhub-dotnet.fsproj", "{42AC2AD7-96D0-4ECC-81A7-F231897D239E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Finnhub", "src\Finnhub.fsproj", "{42AC2AD7-96D0-4ECC-81A7-F231897D239E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "finnhub-dotnet-test", "test\finnhub-dotnet-test.fsproj", "{454E5DD0-7D42-432A-8E5D-8F2CCA92220C}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FinnhubTest", "test\FinnhubTest.fsproj", "{454E5DD0-7D42-432A-8E5D-8F2CCA92220C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

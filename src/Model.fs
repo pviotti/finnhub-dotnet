@@ -1,4 +1,4 @@
-module Model
+namespace Finnhub
 
 type CompanyProfile =
     { country: string
@@ -33,7 +33,7 @@ type NewsPiece =
       summary: string
       url: string }
 
-type News = NewsPiece []
+type CompanyNews = NewsPiece []
 
 type NewsSentiment =
     { buzz: {| articlesInLastWeek: int

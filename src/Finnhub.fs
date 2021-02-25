@@ -1,12 +1,8 @@
-﻿//namespace FinnhubDotNet
-
-module FinnhubDotNet
+﻿namespace Finnhub
 
 open System
 open System.Net.Http
 open System.Net.Http.Json
-
-open Model
 
 type Client(key: string) =
     let key = key
@@ -36,7 +32,7 @@ type Client(key: string) =
         this._request<SymbolLookup> "search?" [ ("q", query) ]
 
     member this.CompanyNews symbol fromDate toDate =
-        this._request<News>
+        this._request<CompanyNews>
             "company-news?"
             [ ("symbol", symbol)
               ("from", fromDate)
@@ -44,29 +40,3 @@ type Client(key: string) =
 
     member this.NewsSentiment symbol =
         this._request<NewsSentiment> "news-sentiment?" [ ("symbol", symbol) ]
-
-[<EntryPoint>]
-let main _argv =
-    let key = Environment.GetEnvironmentVariable "finnhubkey"
-    let client = Client key
-
-    let companyProfile =
-        client.CompanyProfile "AAPL"
-        |> Async.RunSynchronously
-
-    printfn "%s" companyProfile.exchange
-    printfn "%A" companyProfile
-
-    let res =
-        client.SymbolLookup "apple"
-        |> Async.RunSynchronously
-    printfn "%A" res
-
-    let resSentiment =
-        client.CompanyNews "AAPL" "2020-04-30" "2020-05-01"
-        |> Async.RunSynchronously
-    printfn "%A" res
-
-    let resSentiment = client.NewsSentiment "V" |> Async.RunSynchronously
-    printfn "%A" resSentiment
-    0
