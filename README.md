@@ -4,21 +4,21 @@
 
 A .NET client for [Finnhub API][finnhub-api].
 
-At the moment only some APIs are supported (mainly the free ones [TODO: insert list]).
-There isn't any technical reason preventing the implementation of the other API and 
-I welcome contributions.
+*At the moment only some APIs are supported (mainly the free ones [TODO: insert list]).
+There isn't any technical reason preventing the implementation of the other API, and 
+I welcome contributions.*
 
 ## Install
 
 ```
-dotnet add package FinnhubDotNet
+dotnet add package Finnhub
 ```
 
 ## Usage
 
 ```fsharp
 open Finnhub
-let client = FinnhubClient "your-api-key"
+let client = Client "your-api-key"
 client.GetQuote "APPL" |> printfn "%A"
 ```
 
@@ -29,7 +29,7 @@ There are a few other Finnhub API clients for .NET, such as
 [FinnHub.NET][finnhub-.net].
 However, the existing clients had some issues (e.g. lack of API coverage, lack of documentation).
 I also prefer to have a simpler and more concise API wrapper without any external dependencies,
-so I decided to write this client.
+so I decided to write this.
 
  [finnhub-api]: https://finnhub.io/docs/api/
  [finnhub-threefourteen]: https://github.com/KevWK314/ThreeFourteen.FinnhubClient
