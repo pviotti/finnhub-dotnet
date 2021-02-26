@@ -55,3 +55,6 @@ type Client(key: string) =
 
     member this.EarningCalendar fromDate toDate =
         this._request<EarningCalendar> "calendar/earnings?" [ ("from", fromDate); ("to", toDate) ]
+
+    member this.Quote symbol =
+        this._request<Quote> "quote?" [ ("symbol", symbol) ]

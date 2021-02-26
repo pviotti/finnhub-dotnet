@@ -100,3 +100,11 @@ type EarningCalendarEntry =
 
 type EarningCalendar =
     { earningCalendar: EarningCalendarEntry [] }
+
+type Quote =
+    { c: float
+      h: float
+      l: float
+      o: float
+      pc: float
+      t: int64 }

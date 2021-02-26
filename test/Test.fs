@@ -48,6 +48,10 @@ let TestAll () =
     |> Async.RunSynchronously
     |> should be instanceOfType<EarningCalendar>
 
+    client.Quote "APPL"
+    |> Async.RunSynchronously
+    |> should be instanceOfType<Quote>
+
 
 
 [<EntryPoint>]
