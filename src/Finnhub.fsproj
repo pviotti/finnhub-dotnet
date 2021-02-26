@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFrameworks>net5.0</TargetFrameworks>
-	  <OutputType>Library</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Finnhub</RootNamespace>
 
-	  <AssemblyName>Finnhub</AssemblyName>
+    <AssemblyName>Finnhub</AssemblyName>
     <Version>0.1</Version>
     <Authors>Paolo Viotti</Authors>
     <Description>A .NET client for Finnhub API</Description>
