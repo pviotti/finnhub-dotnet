@@ -52,3 +52,6 @@ type Client(key: string) =
 
     member this.Recommendation symbol =
         this._request<Recommendation> "stock/recommendation?" [ ("symbol", symbol) ]
+
+    member this.EarningCalendar fromDate toDate =
+        this._request<EarningCalendar> "calendar/earnings?" [ ("from", fromDate); ("to", toDate) ]

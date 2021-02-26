@@ -86,3 +86,17 @@ type RecommendationEntry =
       period: string }
 
 type Recommendation = RecommendationEntry []
+
+type EarningCalendarEntry =
+    { date: string
+      epsActual: float
+      epsEstimate: float
+      hour: string
+      quarter: int
+      revenueActual: int64
+      revenueEstimate: int64
+      symbol: string
+      year: int }
+
+type EarningCalendar =
+    { earningCalendar: EarningCalendarEntry [] }
