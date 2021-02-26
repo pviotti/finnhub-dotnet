@@ -46,3 +46,9 @@ type Client(key: string) =
             "stock/metric?"
             [ ("symbol", symbol)
               ("metric", "all") ]
+
+    member this.IPOCalendar fromDate toDate =
+        this._request<IPOCalendar> "calendar/ipo?" [ ("from", fromDate); ("to", toDate) ]
+
+    member this.Recommendation symbol =
+        this._request<Recommendation> "stock/recommendation?" [ ("symbol", symbol) ]

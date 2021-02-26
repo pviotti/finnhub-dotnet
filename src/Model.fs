@@ -63,3 +63,26 @@ type BasicFinancials =
                  ``52WeekPriceReturnDaily``: float
                  beta: float |}
       series: {| annual: Annual |} }
+
+type IPOCalendarEntry =
+    {| date: string
+       exchange: string
+       name: string
+       numberOfShares: int64
+       price: string
+       status: string
+       symbol: string
+       totalSharesvalue: int64 |}
+
+type IPOCalendar = { ipoCalendar: IPOCalendarEntry [] }
+
+type RecommendationEntry =
+    { buy: float
+      hold: float
+      sell: float
+      strongBuy: float
+      strongSell: float
+      symbol: string
+      period: string }
+
+type Recommendation = RecommendationEntry []

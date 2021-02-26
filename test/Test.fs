@@ -36,6 +36,14 @@ let TestAll () =
     |> Async.RunSynchronously
     |> should be instanceOfType<BasicFinancials>
 
+    client.IPOCalendar "2020-03-15" "2020-03-16"
+    |> Async.RunSynchronously
+    |> should be instanceOfType<IPOCalendar>
+
+    client.Recommendation "AAPL"
+    |> Async.RunSynchronously
+    |> should be instanceOfType<Recommendation>
+
 
 
 [<EntryPoint>]
