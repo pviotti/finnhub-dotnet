@@ -1,9 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+	  <OutputType>Library</OutputType>
     <RootNamespace>Finnhub</RootNamespace>
+
+	  <AssemblyName>Finnhub</AssemblyName>
     <Version>0.1</Version>
+    <Authors>Paolo Viotti</Authors>
+    <Description>A .NET client for Finnhub API</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/pviotti/finnhub-dotnet</PackageProjectUrl>
+    <PackageTags>finance, API, F#, C#</PackageTags>
+
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
