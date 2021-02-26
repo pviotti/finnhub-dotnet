@@ -45,3 +45,21 @@ type NewsSentiment =
       sentiment: {| bearishPercent: int
                     bullishPercent: int |}
       symbol: string }
+
+type Value = {| period: string; v: float |}
+
+type Annual =
+    { currentRatio: Value []
+      salesPerShare: Value []
+      netMargin: Value [] }
+
+type BasicFinancials =
+    { symbol: string
+      metricType: string
+      metric: {| ``10DayAverageTradingVolume``: float
+                 ``52WeekHigh``: float
+                 ``52WeekLow``: float
+                 ``52WeekLowDate``: string
+                 ``52WeekPriceReturnDaily``: float
+                 beta: float |}
+      series: {| annual: Annual |} }

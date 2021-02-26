@@ -40,3 +40,9 @@ type Client(key: string) =
 
     member this.NewsSentiment symbol =
         this._request<NewsSentiment> "news-sentiment?" [ ("symbol", symbol) ]
+
+    member this.BasicFinancials symbol =
+        this._request<BasicFinancials>
+            "stock/metric?"
+            [ ("symbol", symbol)
+              ("metric", "all") ]

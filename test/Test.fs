@@ -7,32 +7,36 @@ open System
 open Finnhub
 
 [<SetUp>]
-let Setup () =
-    ()
+let Setup () = ()
 
 [<Test>]
 let TestAll () =
-    let key = Environment.GetEnvironmentVariable "finnhubkey"
+    let key =
+        Environment.GetEnvironmentVariable "finnhubkey"
+
     let client = Client key
 
     client.CompanyProfile "AAPL"
-        |> Async.RunSynchronously
-        |> should be instanceOfType<CompanyProfile>
+    |> Async.RunSynchronously
+    |> should be instanceOfType<CompanyProfile>
 
     client.SymbolLookup "apple"
-        |> Async.RunSynchronously
-        |> should be instanceOfType<SymbolLookup>
+    |> Async.RunSynchronously
+    |> should be instanceOfType<SymbolLookup>
 
     client.CompanyNews "AAPL" "2020-04-30" "2020-05-01"
-        |> Async.RunSynchronously
-        |> should be instanceOfType<CompanyNews>
+    |> Async.RunSynchronously
+    |> should be instanceOfType<CompanyNews>
 
     client.NewsSentiment "V"
-        |> Async.RunSynchronously
-        |> should be instanceOfType<NewsSentiment>
+    |> Async.RunSynchronously
+    |> should be instanceOfType<NewsSentiment>
+
+    client.BasicFinancials "AAPL"
+    |> Async.RunSynchronously
+    |> should be instanceOfType<BasicFinancials>
 
 
 
-
-
-module Program = let [<EntryPoint>] main _ = 0
+[<EntryPoint>]
+let main _ = 0
