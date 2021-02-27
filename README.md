@@ -25,7 +25,7 @@ See [nuget.org][nuget].
 open Finnhub
 let client = Client "your-api-key"
 client.Quote "AAPL"
-	|> Async.RunSynchronously
+    |> Async.RunSynchronously
     |> printfn "%A"
 ```
 *[TODO: add C# example]*
