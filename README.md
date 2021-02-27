@@ -24,7 +24,9 @@ See [nuget.org][nuget].
 ```fsharp
 open Finnhub
 let client = Client "your-api-key"
-client.GetQuote "APPL" |> printfn "%A"
+client.Quote "AAPL"
+	|> Async.RunSynchronously
+    |> printfn "%A"
 ```
 *[TODO: add C# example]*
 
