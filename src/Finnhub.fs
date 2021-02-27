@@ -7,21 +7,20 @@ open System.Net.Http.Json
 type Client(key: string) =
     let key = key
 
-    let httpClient =
-        new HttpClient(BaseAddress = Uri("https://finnhub.io/api/v1/"))
-
     let joinParameters (parameters: list<string * string>) =
         parameters
         |> List.append [ ("token", key) ]
         |> List.map (fun x -> fst (x) + "=" + snd (x))
         |> String.concat "&"
 
-    member _._request<'T> path (parameters: list<string * string>) =
+    member val HttpClient = new HttpClient(BaseAddress = Uri("https://finnhub.io/api/v1/")) with get, set
+
+    member this._request<'T> path (parameters: list<string * string>) =
         async {
             let uri = path + joinParameters (parameters)
 
             return!
-                httpClient.GetFromJsonAsync<'T> uri
+                this.HttpClient.GetFromJsonAsync<'T> uri
                 |> Async.AwaitTask
         }
 
