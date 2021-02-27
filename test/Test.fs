@@ -3,6 +3,7 @@ module FinnHub.Test
 open NUnit.Framework
 open FsUnit
 open System
+open System.Net
 open System.Net.Http
 
 open Finnhub
@@ -53,14 +54,34 @@ let TestAll () =
 
 [<Test>]
 let TestExceptions () =
-    let newClient = Client key
-    newClient.HttpClient <- new HttpClient(BaseAddress = Uri("https://finnhub.io/api/WRONG/"))
+    let faultyClient = Client "WRONG"
 
-    (fun () ->
-        newClient.Quote "AAPL"
+    // wrong key -> HttpRequestException, HTTP 401
+    try
+        faultyClient.Quote "AAPL"
         |> Async.RunSynchronously
-        |> ignore)
-    |> should throw typeof<System.AggregateException>
+        |> ignore
+
+        Assert.Fail "Should have thrown an exception before."
+    with :? System.AggregateException as ex ->
+        Assert.AreEqual(typeof<HttpRequestException>, ex.InnerException.GetType())
+
+        let iex =
+            ex.InnerException :?> HttpRequestException
+
+        Assert.AreEqual(HttpStatusCode.Unauthorized, iex.StatusCode.Value)
+
+    // wrong URL -> redirect to HTML page, JsonException
+    faultyClient.HttpClient <- new HttpClient(BaseAddress = Uri("https://finnhub.io/api/WRONG/"))
+    try
+        faultyClient.Quote "AAPL"
+        |> Async.RunSynchronously
+        |> ignore
+
+        Assert.Fail "Should have thrown an exception before."
+    with :? System.AggregateException as ex ->
+        Assert.AreEqual(typeof<System.Text.Json.JsonException>, ex.InnerException.GetType())
+
 
 
 [<EntryPoint>]
