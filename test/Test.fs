@@ -3,19 +3,17 @@ module FinnHub.Test
 open NUnit.Framework
 open FsUnit
 open System
+open System.Net.Http
 
 open Finnhub
 
-[<SetUp>]
-let Setup () = ()
+let key =
+    Environment.GetEnvironmentVariable "finnhubkey"
+
+let client = Client key
 
 [<Test>]
 let TestAll () =
-    let key =
-        Environment.GetEnvironmentVariable "finnhubkey"
-
-    let client = Client key
-
     client.CompanyProfile "AAPL"
     |> Async.RunSynchronously
     |> should be instanceOfType<CompanyProfile>
@@ -52,6 +50,17 @@ let TestAll () =
     |> Async.RunSynchronously
     |> should be instanceOfType<Quote>
 
+
+[<Test>]
+let TestExceptions () =
+    let newClient = Client key
+    newClient.HttpClient <- new HttpClient(BaseAddress = Uri("https://finnhub.io/api/WRONG/"))
+
+    (fun () ->
+        newClient.Quote "AAPL"
+        |> Async.RunSynchronously
+        |> ignore)
+    |> should throw typeof<System.AggregateException>
 
 
 [<EntryPoint>]
