@@ -12,6 +12,10 @@ and the [JSON HTTP extension][system.net.http.json] from its standard library.
 There isn't any technical reason preventing the implementation of the other APIs, and 
 I welcome contributions.*
 
+:information_source: As an alternative to this library, you can also use a .NET client 
+automatically generated from the Finnhub [OpenAPI specification][openapi-spec] 
+using the [Microsoft.dotnet-openapi tool][dotnet-openapi] -- see the `generated` folder.
+
 ## Install
 
 ```
@@ -46,3 +50,5 @@ so I decided to write this.
  [system.net.http.json]: https://docs.microsoft.com/en-us/dotnet/api/system.net.http.json
  [missing-apis]: https://github.com/pviotti/finnhub-dotnet/issues/2
  [nuget]: https://www.nuget.org/packages/Finnhub/
+ [openapi-spec]: https://github.com/Finnhub-Stock-API/finnhub-go/blob/c37bd9d6436d05970bd5787b6352cb34054b4fe4/api/openapi.yaml
+ [dotnet-openapi]: https://devblogs.microsoft.com/aspnet/generating-http-api-clients-using-visual-studio-connected-services/#code-generation-internals
