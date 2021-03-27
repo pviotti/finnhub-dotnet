@@ -42,8 +42,8 @@ type NewsSentiment =
       companyNewsScore: float
       sectorAverageBullishPercent: float
       sectorAverageNewsScore: float
-      sentiment: {| bearishPercent: int
-                    bullishPercent: int |}
+      sentiment: {| bearishPercent: float
+                    bullishPercent: float |}
       symbol: string }
 
 type Value = {| period: string; v: float |}
