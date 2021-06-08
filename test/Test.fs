@@ -31,6 +31,10 @@ let TestAll () =
     |> Async.RunSynchronously
     |> should be instanceOfType<NewsSentiment>
 
+    client.SocialSentiment "GME" "2021-06-07" "2021-06-08"
+    |> Async.RunSynchronously
+    |> should be instanceOfType<SocialSentiment>
+
     client.BasicFinancials "AAPL"
     |> Async.RunSynchronously
     |> should be instanceOfType<BasicFinancials>
