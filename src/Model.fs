@@ -1,5 +1,7 @@
 namespace Finnhub
 
+open System
+
 type CompanyProfile =
     { country: string
       currency: string
@@ -45,6 +47,20 @@ type NewsSentiment =
       sentiment: {| bearishPercent: float
                     bullishPercent: float |}
       symbol: string }
+
+type SocialSentimentUnit =
+    { atTime: string
+      mention: int
+      positiveScore: float
+      negativeScore: float
+      positiveMention: int
+      negativeMention: int
+      score: float }
+
+type SocialSentiment =
+    { symbol: string
+      twitter: SocialSentimentUnit []
+      reddit: SocialSentimentUnit [] }
 
 type Value = {| period: string; v: float |}
 
