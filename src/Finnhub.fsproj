@@ -6,12 +6,19 @@
     <RootNamespace>Finnhub</RootNamespace>
 
     <AssemblyName>Finnhub</AssemblyName>
-    <Version>0.1</Version>
+    <Version>0.2</Version>
     <Authors>Paolo Viotti</Authors>
     <Description>A .NET client for Finnhub API</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/pviotti/finnhub-dotnet</PackageProjectUrl>
     <PackageTags>finance, API, F#, C#</PackageTags>
+    <PackageReleaseNotes>
+        v0.2
+        * add support for Social Sentiment API
+        
+        v0.1 
+        * first version: 9 free API supported
+    </PackageReleaseNotes>
 
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
