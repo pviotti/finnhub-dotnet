@@ -77,6 +77,7 @@ let TestExceptions () =
 
     // wrong URL -> redirect to HTML page, JsonException
     faultyClient.HttpClient <- new HttpClient(BaseAddress = Uri("https://finnhub.io/api/WRONG/"))
+
     try
         faultyClient.Quote "AAPL"
         |> Async.RunSynchronously
