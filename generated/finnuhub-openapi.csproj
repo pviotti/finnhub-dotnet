@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.16.1" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.20.0" />
   </ItemGroup>
   <ItemGroup>
     <OpenApiReference Include="finnhub-openapi.yaml" />
